@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberWordle</title>
+    <title>Ora Wordl.io</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .cell { transition: all 0.2s; border-width: 2px; }
@@ -17,9 +17,9 @@
 <body class="bg-slate-950 text-white min-h-screen flex flex-col items-center py-6 font-sans overflow-x-hidden">
 
     <div class="w-full max-w-4xl flex flex-col items-center px-4">
-        <h1 class="text-3xl font-black mb-6 text-emerald-500 italic uppercase tracking-tighter">CyberWordle (in turco)</h1>
+        <h1 class="text-3xl font-black mb-6 text-emerald-500 italic uppercase tracking-tighter">Ora Wordl.io</h1>
         
-        <input id="studentName" type="text" placeholder="Inserisci nome e cognome (VERI)" 
+        <input id="studentName" type="text" placeholder="Inserisci nickname" 
                class="w-full max-w-sm bg-slate-900 border-2 border-slate-800 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 mb-8 text-center text-xl shadow-2xl transition-all">
 
         <div id="grid" class="grid gap-2 mb-8 justify-center"></div>
@@ -39,10 +39,11 @@
             return decodeURIComponent(atob(str).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
         }
 
-        const TURKISH_KEYS = [
-            ['Q','W','E','R','T','Y','U','I','O','P','Ğ','Ü'],
-            ['A','S','D','F','G','H','J','K','L','Ş','İ'],
-            ['INVIO','Z','X','C','V','B','N','M','Ö','Ç','⌫']
+        const KEYBOARD_KEYS = [
+            ['Q','W','E','R','T','Y','U','I','O','P','È','É'],
+            ['A','S','D','F','G','H','J','K','L','Ò','À'],
+            ['Z','X','C','V','B','N','M','Ì','Ù','⌫',]
+            ['INVIO','SPACE'],
         ];
         
         function isValidBase64(str) {
@@ -76,7 +77,7 @@
         }
 
         const kb = document.getElementById('keyboard');
-        TURKISH_KEYS.forEach(row => {
+        KEYBOARD_KEYS.forEach(row => {
             const rowDiv = document.createElement('div'); rowDiv.className = "flex justify-center gap-1";
             row.forEach(key => {
                 const btn = document.createElement('button');
